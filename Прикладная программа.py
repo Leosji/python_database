@@ -15,7 +15,6 @@ def connect_to_db():
     return psycopg2.connect(**DB_CONFIG)
 
 # Добавление данных
-# Добавление данных
 def add_data():
     try:
         conn = connect_to_db()
@@ -67,28 +66,24 @@ def read_data():
         conn = connect_to_db()
         cur = conn.cursor()
 
-        # Чтение студентов
         cur.execute("SELECT * FROM students")
         students = cur.fetchall()
         print("\nStudents:")
         for student in students:
             print(student)
 
-        # Чтение курсов
         cur.execute("SELECT * FROM courses")
         courses = cur.fetchall()
         print("\nCourses:")
         for course in courses:
             print(course)
 
-        # Чтение департаментов
         cur.execute("SELECT * FROM departments")
         departments = cur.fetchall()
         print("\nDepartments:")
         for department in departments:
             print(department)
 
-        # Чтение записей на курсы
         cur.execute("SELECT * FROM enrollments")
         enrollments = cur.fetchall()
         print("\nEnrollments:")
